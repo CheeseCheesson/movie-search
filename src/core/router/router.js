@@ -1,3 +1,5 @@
+import { FilmsView } from "../../views/FilmsView";
+
 export default class Router {
   #controller;
   #routes;
@@ -22,12 +24,12 @@ export default class Router {
   }
 
   #hashChange() {
-    // this будет ссылаться на window поэтому это функцию надо прибиндить
+    //! this будет ссылаться на window поэтому это функцию надо прибиндить
     // потому что в addEventListener this это объект преред точкой
     // т.е. в нашем случае в   init() это  window.
     const routInfo = this.getRoutInfo();
-    // чтобы url совпадали с хешами наших роутеров (  Main: 'main')
-    const TargetView = this.#routes[routInfo.routeName];
+    //^ чтобы url совпадали с хешами наших роутеров (  Main: 'main')
+    const TargetView = this.#routes[routInfo.routeName] || FilmsView;
     if (TargetView) {
       this.#root.innerHTML = "";
       const targetView = new TargetView(this.#root);
@@ -37,5 +39,6 @@ export default class Router {
 
   init() {
     window.addEventListener("hashchange", this.#hashChange.bind(this));
+    this.#hashChange()
   }
 }
