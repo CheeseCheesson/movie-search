@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx webpack serve --env development",
-    "build": "npx webpack",
-    "lint": "npx eslint --fix ./"
+    "build": "npx webpack"
   },
   "keywords": [],
   "author": "",
@@ -22,9 +21,6 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.4.0",
     "dotenv-webpack": "^7.0.3",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.25.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.4.0",
     "regenerator-runtime": "^0.13.9",
