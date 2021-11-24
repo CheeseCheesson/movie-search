@@ -32,7 +32,7 @@ export default class FilmsService {
             Type: filmData.Type,
             Year: filmData.Year,
             imdbID: filmData.imdbID,
-            //favorite
+            isFavorite: filmData.isFavorite,
           });
         });
         return filmModels;

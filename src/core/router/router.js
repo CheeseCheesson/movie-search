@@ -32,14 +32,19 @@ export default class Router {
     const TargetView = this.#routes[routInfo.routeName] || FilmsView;
     if (TargetView) {
       this.#root.innerHTML = "";
-      const paramsForRender = await this.#controller.getViewParams(routInfo.routeName = 'main')
+      const paramsForRender = await this.#controller.getViewParams(
+        (routInfo.routeName = "main")
+      );
       const targetView = new TargetView(this.#root);
+      targetView.setHandleFavoriteButtonClick(
+        this.#controller.handleFavoriteButtonClick.bind(this.#controller)
+      );
       targetView.render(...paramsForRender);
     }
   }
 
   init() {
     window.addEventListener("hashchange", this.#hashChange.bind(this));
-    this.#hashChange()
+    this.#hashChange();
   }
 }

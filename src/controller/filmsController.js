@@ -26,12 +26,13 @@ export default class FilmsController {
     } else if (routeName === Routes.Film) {
       paramsForRender = [this.#film];
     }
-    paramsForRender;
+
     return paramsForRender;
   }
 
   // внутри будем использовать функции из сервиса, они асинхронные
   async handleFavoriteButtonClick(isFavorite, filmId) {
+
     if (isFavorite) {
       await this.#service.removeFilmFromFavorites(
         this.#allFilms,

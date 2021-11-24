@@ -1,9 +1,9 @@
 export const getFilmById = (films, filmId) => {
-  return films.find((filmModel) => filmModel.getId() === filmId);
+  return films.find((filmModel) => filmModel.getimdbID() === filmId);
 };
 
 export const removeFilmById = (targetFilms, filmId) => {
-  return films.filter(
-    (filmModel) => filmModel.getId() !== filmId
+  return targetFilms.filter(
+    (filmModel) => filmModel.getimdbID() !== filmId
   );
 }

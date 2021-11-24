@@ -29,7 +29,10 @@ export class FavoritesView extends View {
     filmsContainer.className = "film-cards-container";
 
     favoriteFilmModels.forEach((filmModel) => {
-      const filmHTML = renderFilmComponent({ filmModel });
+      const filmHTML = renderFilmComponent({
+        filmModel,
+        handleFavoriteButtonClick: this.getHandleFavoriteButtonClick(),
+      });
       filmsContainer.append(filmHTML);
     });
 
