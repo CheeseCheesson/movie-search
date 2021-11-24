@@ -32,8 +32,9 @@ export default class Router {
     const TargetView = this.#routes[routInfo.routeName] || FilmsView;
     if (TargetView) {
       this.#root.innerHTML = "";
+      const paramsForRender = this.#controller.getViewParams(routInfo.routeName = 'main')
       const targetView = new TargetView(this.#root);
-      targetView.render();
+      targetView.render(...paramsForRender);
     }
   }
 

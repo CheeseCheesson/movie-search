@@ -2,7 +2,7 @@ import { EnvData } from "../constans/envData";
 import FilmModel from "../../models/filmModel";
 
 export default class FilmsService {
-  static #DefaultSearchValue = "DC film";
+  static #DefaultSearchValue = "SuperMen";
   static #Urls = {
     Main: (searchByName = FilmsService.#DefaultSearchValue) =>
       `http://www.omdbapi.com/?s=${searchByName}&apikey=${EnvData.FilmsApiKey}`,
@@ -14,7 +14,7 @@ export default class FilmsService {
     try {
       const response = await fetch(FilmsService.#Urls.Main());
       if (!response.ok) {
-        throw new Error('Нет данных с фильмами');
+        throw new Error("Нет данных с фильмами");
       } else {
         const data = await response.json();
         const filmModels = data.Search.map((filmData) => {
@@ -27,10 +27,24 @@ export default class FilmsService {
             //favorite
           });
         });
-        return filmModels
+        return filmModels;
       }
     } catch (e) {
       return { error: e.message };
     }
+  }
+
+  //! сохраняем данные в localstorage
+
+  async saveFilms() {
+
+  }
+
+  async addFilmToFavorits() {
+
+  }
+
+  async removeFilmFromFavorites(){
+    
   }
 }

@@ -33,6 +33,11 @@ export default class FilmModel {
   getimdbID() {
     return this.#imdbID;
   }
+
+  getIsFavorit(){
+    return this.#isFavorite;
+  }
+
   setIsFavorit(isFavorite){
     return this.#isFavorite = isFavorite
   }
