@@ -2,7 +2,7 @@ import { EnvData } from "../constans/envData";
 import FilmModel from "../../models/filmModel";
 
 export default class FilmsService {
-  static #DefaultSearchValue = "DC film";
+  static #DefaultSearchValue = "SuperMen";
   static #Urls = {
     Main: (searchByName = FilmsService.#DefaultSearchValue) =>
       `http://www.omdbapi.com/?s=${searchByName}&apikey=${EnvData.FilmsApiKey}`,
