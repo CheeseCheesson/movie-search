@@ -4,7 +4,8 @@ import notIsFavoritesImage from '../../assets/icons/heart.png'
 import filmDefaultImg from '../../assets/image_default/film_default.jpg'
 
 export const renderFilmComponent = ({
-  filmModel
+  filmModel,
+  handleFavoriteButtonClick
 }) => {
   const container = document.createElement('div')
     container.className = 'film-card'
@@ -37,6 +38,12 @@ export const renderFilmComponent = ({
       actionButtonImg.src = notIsFavoritesImage
     }
     actionButton.append(actionButtonImg)
+
+    actionButton.addEventListener('click', async () => {
+      if(handleFavoriteButtonClick){
+        await handleFavoriteButtonClick(filmModel.getIsFavorit(), filmModel.getimdbID())
+      }
+    })
 
     container.append(titleHTML, imageHTML, yearHTML, actionButton)
   
